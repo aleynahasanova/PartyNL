@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "gLUH2pjlYKE=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\aleyn\\OneDrive\\Desktop\\PartyNL\\PartyNL\\backend\\PartyNL.API\\PartyNL.API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\aleyn\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.18\\microsoft.aspnetcore.openapi.9.0.18.nupkg.sha512",
+    "C:\\Users\\aleyn\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}

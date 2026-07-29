@@ -1,0 +1,15 @@
+C:\Users\aleyn\OneDrive\Desktop\PartyNL\PartyNL\backend\PartyNL.Application\bin\Debug\net9.0\PartyNL.Application.deps.json
+C:\Users\aleyn\OneDrive\Desktop\PartyNL\PartyNL\backend\PartyNL.Application\bin\Debug\net9.0\PartyNL.Application.dll
+C:\Users\aleyn\OneDrive\Desktop\PartyNL\PartyNL\backend\PartyNL.Application\bin\Debug\net9.0\PartyNL.Application.pdb
+C:\Users\aleyn\OneDrive\Desktop\PartyNL\PartyNL\backend\PartyNL.Application\bin\Debug\net9.0\PartyNL.Domain.dll
+C:\Users\aleyn\OneDrive\Desktop\PartyNL\PartyNL\backend\PartyNL.Application\bin\Debug\net9.0\PartyNL.Domain.pdb
+C:\Users\aleyn\OneDrive\Desktop\PartyNL\PartyNL\backend\PartyNL.Application\obj\Debug\net9.0\PartyNL.Application.csproj.AssemblyReference.cache
+C:\Users\aleyn\OneDrive\Desktop\PartyNL\PartyNL\backend\PartyNL.Application\obj\Debug\net9.0\PartyNL.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\aleyn\OneDrive\Desktop\PartyNL\PartyNL\backend\PartyNL.Application\obj\Debug\net9.0\PartyNL.Application.AssemblyInfoInputs.cache
+C:\Users\aleyn\OneDrive\Desktop\PartyNL\PartyNL\backend\PartyNL.Application\obj\Debug\net9.0\PartyNL.Application.AssemblyInfo.cs
+C:\Users\aleyn\OneDrive\Desktop\PartyNL\PartyNL\backend\PartyNL.Application\obj\Debug\net9.0\PartyNL.Application.csproj.CoreCompileInputs.cache
+C:\Users\aleyn\OneDrive\Desktop\PartyNL\PartyNL\backend\PartyNL.Application\obj\Debug\net9.0\PartyNL..F945CBAA.Up2Date
+C:\Users\aleyn\OneDrive\Desktop\PartyNL\PartyNL\backend\PartyNL.Application\obj\Debug\net9.0\PartyNL.Application.dll
+C:\Users\aleyn\OneDrive\Desktop\PartyNL\PartyNL\backend\PartyNL.Application\obj\Debug\net9.0\refint\PartyNL.Application.dll
+C:\Users\aleyn\OneDrive\Desktop\PartyNL\PartyNL\backend\PartyNL.Application\obj\Debug\net9.0\PartyNL.Application.pdb
+C:\Users\aleyn\OneDrive\Desktop\PartyNL\PartyNL\backend\PartyNL.Application\obj\Debug\net9.0\ref\PartyNL.Application.dll
