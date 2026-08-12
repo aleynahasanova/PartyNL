@@ -9,3 +9,4 @@ C:\Users\aleyn\OneDrive\Desktop\PartyNL\PartyNL\backend\PartyNL.Domain\obj\Debug
 C:\Users\aleyn\OneDrive\Desktop\PartyNL\PartyNL\backend\PartyNL.Domain\obj\Debug\net9.0\refint\PartyNL.Domain.dll
 C:\Users\aleyn\OneDrive\Desktop\PartyNL\PartyNL\backend\PartyNL.Domain\obj\Debug\net9.0\PartyNL.Domain.pdb
 C:\Users\aleyn\OneDrive\Desktop\PartyNL\PartyNL\backend\PartyNL.Domain\obj\Debug\net9.0\ref\PartyNL.Domain.dll
+C:\Users\aleyn\OneDrive\Desktop\PartyNL\PartyNL\backend\PartyNL.Domain\obj\Debug\net9.0\PartyNL.Domain.sourcelink.json

@@ -1,11 +1,48 @@
 {
   "version": 3,
   "targets": {
-    "net9.0": {}
+    "net9.0": {
+      "PartyNL.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "dependencies": {
+          "PartyNL.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/PartyNL.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PartyNL.Application.dll": {}
+        }
+      },
+      "PartyNL.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/PartyNL.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PartyNL.Domain.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "PartyNL.Application/1.0.0": {
+      "type": "project",
+      "path": "../PartyNL.Application/PartyNL.Application.csproj",
+      "msbuildProject": "../PartyNL.Application/PartyNL.Application.csproj"
+    },
+    "PartyNL.Domain/1.0.0": {
+      "type": "project",
+      "path": "../PartyNL.Domain/PartyNL.Domain.csproj",
+      "msbuildProject": "../PartyNL.Domain/PartyNL.Domain.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net9.0": []
+    "net9.0": [
+      "PartyNL.Application >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\aleyn\\.nuget\\packages\\": {},
@@ -39,7 +76,11 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\aleyn\\OneDrive\\Desktop\\PartyNL\\PartyNL\\backend\\PartyNL.Application\\PartyNL.Application.csproj": {
+              "projectPath": "C:\\Users\\aleyn\\OneDrive\\Desktop\\PartyNL\\PartyNL\\backend\\PartyNL.Application\\PartyNL.Application.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

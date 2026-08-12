@@ -13,3 +13,4 @@ C:\Users\aleyn\OneDrive\Desktop\PartyNL\PartyNL\backend\PartyNL.Application\obj\
 C:\Users\aleyn\OneDrive\Desktop\PartyNL\PartyNL\backend\PartyNL.Application\obj\Debug\net9.0\refint\PartyNL.Application.dll
 C:\Users\aleyn\OneDrive\Desktop\PartyNL\PartyNL\backend\PartyNL.Application\obj\Debug\net9.0\PartyNL.Application.pdb
 C:\Users\aleyn\OneDrive\Desktop\PartyNL\PartyNL\backend\PartyNL.Application\obj\Debug\net9.0\ref\PartyNL.Application.dll
+C:\Users\aleyn\OneDrive\Desktop\PartyNL\PartyNL\backend\PartyNL.Application\obj\Debug\net9.0\PartyNL.Application.sourcelink.json
