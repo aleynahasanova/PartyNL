@@ -12,4 +12,6 @@ public class User : AuditableEntity
     public string PasswordHash { get; set; } = string.Empty;
 
     public string? ProfilePictureUrl { get; set; }
+
+    public ICollection<Attendance> Attendances { get; set; } = new List<Attendance>();
 }

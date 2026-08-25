@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PartyNL.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7df49d60d2d5bbb922a49a8ad73f159007a2451b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bd025eaf3168df73393c1ae87ceeffd5f9da2112")]
 [assembly: System.Reflection.AssemblyProductAttribute("PartyNL.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PartyNL.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
