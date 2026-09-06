@@ -1,5 +1,4 @@
-using Microsoft.EntityFrameworkCore;
-using PartyNL.Persistence.Context;
+using PartyNL.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,9 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-builder.Services.AddDbContext<PartyNLDbContext>(options =>
-    options.UseNpgsql(
-        builder.Configuration.GetConnectionString("PartyNLDatabase")));
+builder.Services.AddPersistence(builder.Configuration);
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
