@@ -35,4 +35,6 @@ public class Event : AuditableEntity
     public Location Location { get; set; } = null!;
 
     public ICollection<Attendance> Attendances { get; set; } = new List<Attendance>();
+    public ICollection<Favorite> Favorites { get; set; } = new List<Favorite>();
+    public ICollection<EventCategory> EventCategories { get; set; } = new List<EventCategory>();
 }

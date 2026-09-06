@@ -14,4 +14,5 @@ public class User : AuditableEntity
     public string? ProfilePictureUrl { get; set; }
 
     public ICollection<Attendance> Attendances { get; set; } = new List<Attendance>();
+    public ICollection<Favorite> Favorites { get; set; } = new List<Favorite>();
 }

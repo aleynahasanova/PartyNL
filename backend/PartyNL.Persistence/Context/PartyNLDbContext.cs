@@ -16,6 +16,8 @@ public class PartyNLDbContext : DbContext
     public DbSet<Location> Locations => Set<Location>();
     public DbSet<Category> Categories => Set<Category>();
     public DbSet<Attendance> Attendances => Set<Attendance>();
+    public DbSet<Favorite> Favorites => Set<Favorite>();
+    public DbSet<EventCategory> EventCategories => Set<EventCategory>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
