@@ -17,6 +17,13 @@ public static class DependencyInjection
             options.UseNpgsql(configuration.GetConnectionString("PartyNLDatabase")));
 
         services.AddScoped<IUserRepository, UserRepository>();
+        services.AddScoped<IOrganizerRepository, OrganizerRepository>();
+        services.AddScoped<ILocationRepository, LocationRepository>();
+        services.AddScoped<ICategoryRepository, CategoryRepository>();
+        services.AddScoped<IEventRepository, EventRepository>();
+        services.AddScoped<IAttendanceRepository, AttendanceRepository>();
+        services.AddScoped<IFavoriteRepository, FavoriteRepository>();
+        services.AddScoped<IEventCategoryRepository, EventCategoryRepository>();
 
         return services;
     }
