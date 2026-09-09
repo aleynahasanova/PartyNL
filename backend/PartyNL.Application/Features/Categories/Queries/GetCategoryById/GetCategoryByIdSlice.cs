@@ -1,0 +1,4 @@
+using MediatR; using PartyNL.Application.Abstractions.Repositories;
+namespace PartyNL.Application.Features.Categories.Queries.GetCategoryById;
+public sealed record GetCategoryByIdQuery(Guid CategoryId):IRequest<GetCategoryByIdResponse>;public sealed record GetCategoryByIdResponse(Guid Id,string Name,string? Icon);
+public sealed class GetCategoryByIdHandler(ICategoryRepository repository):IRequestHandler<GetCategoryByIdQuery,GetCategoryByIdResponse>{public async Task<GetCategoryByIdResponse> Handle(GetCategoryByIdQuery request,CancellationToken cancellationToken){var e=await repository.GetByIdAsync(request.CategoryId)??throw new KeyNotFoundException($"Category with ID '{request.CategoryId}' was not found.");return new(e.Id,e.Name,e.Icon);}}

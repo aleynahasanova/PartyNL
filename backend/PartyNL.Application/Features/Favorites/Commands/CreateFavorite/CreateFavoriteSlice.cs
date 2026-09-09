@@ -1,0 +1,4 @@
+using MediatR; using PartyNL.Application.Abstractions.Repositories; using PartyNL.Domain.Entities;
+namespace PartyNL.Application.Features.Favorites.Commands.CreateFavorite;
+public sealed record CreateFavoriteCommand(Guid UserId,Guid EventId,DateTime CreatedAt):IRequest<CreateFavoriteResponse>;public sealed record CreateFavoriteResponse(Guid UserId,Guid EventId,DateTime CreatedAt);
+public sealed class CreateFavoriteHandler(IFavoriteRepository repository):IRequestHandler<CreateFavoriteCommand,CreateFavoriteResponse>{public async Task<CreateFavoriteResponse> Handle(CreateFavoriteCommand request,CancellationToken cancellationToken){var e=new Favorite{UserId=request.UserId,EventId=request.EventId,CreatedAt=request.CreatedAt};await repository.AddAsync(e);return new(e.UserId,e.EventId,e.CreatedAt);}}

@@ -1,0 +1,4 @@
+using MediatR; using PartyNL.Application.Abstractions.Repositories; using PartyNL.Domain.Entities;
+namespace PartyNL.Application.Features.EventCategories.Commands.CreateEventCategory;
+public sealed record CreateEventCategoryCommand(Guid EventId,Guid CategoryId):IRequest<CreateEventCategoryResponse>;public sealed record CreateEventCategoryResponse(Guid EventId,Guid CategoryId);
+public sealed class CreateEventCategoryHandler(IEventCategoryRepository repository):IRequestHandler<CreateEventCategoryCommand,CreateEventCategoryResponse>{public async Task<CreateEventCategoryResponse> Handle(CreateEventCategoryCommand request,CancellationToken cancellationToken){var e=new EventCategory{EventId=request.EventId,CategoryId=request.CategoryId};await repository.AddAsync(e);return new(e.EventId,e.CategoryId);}}

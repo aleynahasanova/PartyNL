@@ -1,0 +1,4 @@
+using MediatR; using PartyNL.Application.Abstractions.Repositories;
+namespace PartyNL.Application.Features.Locations.Queries.GetAllLocations;
+public sealed record GetAllLocationsQuery:IRequest<GetAllLocationsResponse>;public sealed record LocationResponse(Guid Id,string? Name,string? Street,string? City,string? PostalCode,string? Province,string? Country,decimal Latitude,decimal Longitude);public sealed record GetAllLocationsResponse(IEnumerable<LocationResponse> Locations);
+public sealed class GetAllLocationsHandler(ILocationRepository repository):IRequestHandler<GetAllLocationsQuery,GetAllLocationsResponse>{public async Task<GetAllLocationsResponse> Handle(GetAllLocationsQuery request,CancellationToken cancellationToken){var items=await repository.GetAllAsync();return new(items.Select(e=>new LocationResponse(e.Id,e.Name,e.Street,e.City,e.PostalCode,e.Province,e.Country,e.Latitude,e.Longitude)));}}

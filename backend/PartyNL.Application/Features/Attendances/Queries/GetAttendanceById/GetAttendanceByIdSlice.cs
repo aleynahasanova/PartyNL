@@ -1,0 +1,4 @@
+using MediatR; using PartyNL.Application.Abstractions.Repositories; using PartyNL.Domain.Enums;
+namespace PartyNL.Application.Features.Attendances.Queries.GetAttendanceById;
+public sealed record GetAttendanceByIdQuery(Guid UserId,Guid EventId):IRequest<GetAttendanceByIdResponse>;public sealed record GetAttendanceByIdResponse(Guid UserId,Guid EventId,AttendanceStatus Status,DateTime JoinedAt);
+public sealed class GetAttendanceByIdHandler(IAttendanceRepository repository):IRequestHandler<GetAttendanceByIdQuery,GetAttendanceByIdResponse>{public async Task<GetAttendanceByIdResponse> Handle(GetAttendanceByIdQuery request,CancellationToken cancellationToken){var e=await repository.GetByIdAsync(request.UserId,request.EventId)??throw new KeyNotFoundException("Attendance was not found.");return new(e.UserId,e.EventId,e.Status,e.JoinedAt);}}

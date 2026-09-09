@@ -1,0 +1,4 @@
+using MediatR; using PartyNL.Application.Abstractions.Repositories;
+namespace PartyNL.Application.Features.Categories.Queries.GetAllCategories;
+public sealed record GetAllCategoriesQuery:IRequest<GetAllCategoriesResponse>;public sealed record CategoryResponse(Guid Id,string Name,string? Icon);public sealed record GetAllCategoriesResponse(IEnumerable<CategoryResponse> Categories);
+public sealed class GetAllCategoriesHandler(ICategoryRepository repository):IRequestHandler<GetAllCategoriesQuery,GetAllCategoriesResponse>{public async Task<GetAllCategoriesResponse> Handle(GetAllCategoriesQuery request,CancellationToken cancellationToken){var items=await repository.GetAllAsync();return new(items.Select(e=>new CategoryResponse(e.Id,e.Name,e.Icon)));}}

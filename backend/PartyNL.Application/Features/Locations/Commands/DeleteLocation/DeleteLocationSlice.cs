@@ -1,0 +1,4 @@
+using MediatR; using PartyNL.Application.Abstractions.Repositories;
+namespace PartyNL.Application.Features.Locations.Commands.DeleteLocation;
+public sealed record DeleteLocationCommand(Guid Id):IRequest<DeleteLocationResponse>;public sealed record DeleteLocationResponse(Guid Id);
+public sealed class DeleteLocationHandler(ILocationRepository repository):IRequestHandler<DeleteLocationCommand,DeleteLocationResponse>{public async Task<DeleteLocationResponse> Handle(DeleteLocationCommand request,CancellationToken cancellationToken){var e=await repository.GetByIdAsync(request.Id)??throw new KeyNotFoundException($"Location with ID '{request.Id}' was not found.");await repository.DeleteAsync(e);return new(e.Id);}}

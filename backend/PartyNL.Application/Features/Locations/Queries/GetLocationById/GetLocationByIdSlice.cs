@@ -1,0 +1,4 @@
+using MediatR; using PartyNL.Application.Abstractions.Repositories;
+namespace PartyNL.Application.Features.Locations.Queries.GetLocationById;
+public sealed record GetLocationByIdQuery(Guid LocationId):IRequest<GetLocationByIdResponse>;public sealed record GetLocationByIdResponse(Guid Id,string? Name,string? Street,string? City,string? PostalCode,string? Province,string? Country,decimal Latitude,decimal Longitude);
+public sealed class GetLocationByIdHandler(ILocationRepository repository):IRequestHandler<GetLocationByIdQuery,GetLocationByIdResponse>{public async Task<GetLocationByIdResponse> Handle(GetLocationByIdQuery request,CancellationToken cancellationToken){var e=await repository.GetByIdAsync(request.LocationId)??throw new KeyNotFoundException($"Location with ID '{request.LocationId}' was not found.");return new(e.Id,e.Name,e.Street,e.City,e.PostalCode,e.Province,e.Country,e.Latitude,e.Longitude);}}

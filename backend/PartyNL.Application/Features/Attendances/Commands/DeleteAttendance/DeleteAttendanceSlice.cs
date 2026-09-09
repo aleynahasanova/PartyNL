@@ -1,0 +1,4 @@
+using MediatR; using PartyNL.Application.Abstractions.Repositories;
+namespace PartyNL.Application.Features.Attendances.Commands.DeleteAttendance;
+public sealed record DeleteAttendanceCommand(Guid UserId,Guid EventId):IRequest<DeleteAttendanceResponse>;public sealed record DeleteAttendanceResponse(Guid UserId,Guid EventId);
+public sealed class DeleteAttendanceHandler(IAttendanceRepository repository):IRequestHandler<DeleteAttendanceCommand,DeleteAttendanceResponse>{public async Task<DeleteAttendanceResponse> Handle(DeleteAttendanceCommand request,CancellationToken cancellationToken){var e=await repository.GetByIdAsync(request.UserId,request.EventId)??throw new KeyNotFoundException("Attendance was not found.");await repository.DeleteAsync(e);return new(e.UserId,e.EventId);}}

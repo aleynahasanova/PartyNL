@@ -1,0 +1,4 @@
+using MediatR; using PartyNL.Application.Abstractions.Repositories;
+namespace PartyNL.Application.Features.EventCategories.Commands.UpdateEventCategory;
+public sealed record UpdateEventCategoryCommand(Guid EventId,Guid CategoryId):IRequest<UpdateEventCategoryResponse>;public sealed record UpdateEventCategoryResponse(Guid EventId,Guid CategoryId);
+public sealed class UpdateEventCategoryHandler(IEventCategoryRepository repository):IRequestHandler<UpdateEventCategoryCommand,UpdateEventCategoryResponse>{public async Task<UpdateEventCategoryResponse> Handle(UpdateEventCategoryCommand request,CancellationToken cancellationToken){var e=await repository.GetByIdAsync(request.EventId,request.CategoryId)??throw new KeyNotFoundException("Event category was not found.");await repository.UpdateAsync(e);return new(e.EventId,e.CategoryId);}}

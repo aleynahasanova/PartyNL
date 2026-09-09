@@ -1,0 +1,4 @@
+using MediatR; using PartyNL.Application.Abstractions.Repositories; using PartyNL.Domain.Enums;
+namespace PartyNL.Application.Features.Attendances.Queries.GetAllAttendances;
+public sealed record GetAllAttendancesQuery:IRequest<GetAllAttendancesResponse>;public sealed record AttendanceResponse(Guid UserId,Guid EventId,AttendanceStatus Status,DateTime JoinedAt);public sealed record GetAllAttendancesResponse(IEnumerable<AttendanceResponse> Attendances);
+public sealed class GetAllAttendancesHandler(IAttendanceRepository repository):IRequestHandler<GetAllAttendancesQuery,GetAllAttendancesResponse>{public async Task<GetAllAttendancesResponse> Handle(GetAllAttendancesQuery request,CancellationToken cancellationToken){var items=await repository.GetAllAsync();return new(items.Select(e=>new AttendanceResponse(e.UserId,e.EventId,e.Status,e.JoinedAt)));}}

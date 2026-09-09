@@ -1,0 +1,4 @@
+using MediatR; using PartyNL.Application.Abstractions.Repositories;
+namespace PartyNL.Application.Features.Events.Commands.DeleteEvent;
+public sealed record DeleteEventCommand(Guid Id):IRequest<DeleteEventResponse>;public sealed record DeleteEventResponse(Guid Id);
+public sealed class DeleteEventHandler(IEventRepository repository):IRequestHandler<DeleteEventCommand,DeleteEventResponse>{public async Task<DeleteEventResponse> Handle(DeleteEventCommand request,CancellationToken cancellationToken){var e=await repository.GetByIdAsync(request.Id)??throw new KeyNotFoundException($"Event with ID '{request.Id}' was not found.");await repository.DeleteAsync(e);return new(e.Id);}}

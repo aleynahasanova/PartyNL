@@ -1,0 +1,4 @@
+using MediatR; using PartyNL.Application.Abstractions.Repositories;
+namespace PartyNL.Application.Features.EventCategories.Commands.DeleteEventCategory;
+public sealed record DeleteEventCategoryCommand(Guid EventId,Guid CategoryId):IRequest<DeleteEventCategoryResponse>;public sealed record DeleteEventCategoryResponse(Guid EventId,Guid CategoryId);
+public sealed class DeleteEventCategoryHandler(IEventCategoryRepository repository):IRequestHandler<DeleteEventCategoryCommand,DeleteEventCategoryResponse>{public async Task<DeleteEventCategoryResponse> Handle(DeleteEventCategoryCommand request,CancellationToken cancellationToken){var e=await repository.GetByIdAsync(request.EventId,request.CategoryId)??throw new KeyNotFoundException("Event category was not found.");await repository.DeleteAsync(e);return new(e.EventId,e.CategoryId);}}

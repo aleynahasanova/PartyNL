@@ -1,0 +1,4 @@
+using MediatR; using PartyNL.Application.Abstractions.Repositories;
+namespace PartyNL.Application.Features.Categories.Commands.DeleteCategory;
+public sealed record DeleteCategoryCommand(Guid Id):IRequest<DeleteCategoryResponse>;public sealed record DeleteCategoryResponse(Guid Id);
+public sealed class DeleteCategoryHandler(ICategoryRepository repository):IRequestHandler<DeleteCategoryCommand,DeleteCategoryResponse>{public async Task<DeleteCategoryResponse> Handle(DeleteCategoryCommand request,CancellationToken cancellationToken){var e=await repository.GetByIdAsync(request.Id)??throw new KeyNotFoundException($"Category with ID '{request.Id}' was not found.");await repository.DeleteAsync(e);return new(e.Id);}}

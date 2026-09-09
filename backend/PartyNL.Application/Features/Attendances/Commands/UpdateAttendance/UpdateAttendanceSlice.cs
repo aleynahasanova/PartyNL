@@ -1,0 +1,4 @@
+using MediatR; using PartyNL.Application.Abstractions.Repositories; using PartyNL.Domain.Enums;
+namespace PartyNL.Application.Features.Attendances.Commands.UpdateAttendance;
+public sealed record UpdateAttendanceCommand(Guid UserId,Guid EventId,AttendanceStatus Status,DateTime JoinedAt):IRequest<UpdateAttendanceResponse>;public sealed record UpdateAttendanceResponse(Guid UserId,Guid EventId,AttendanceStatus Status,DateTime JoinedAt);
+public sealed class UpdateAttendanceHandler(IAttendanceRepository repository):IRequestHandler<UpdateAttendanceCommand,UpdateAttendanceResponse>{public async Task<UpdateAttendanceResponse> Handle(UpdateAttendanceCommand request,CancellationToken cancellationToken){var e=await repository.GetByIdAsync(request.UserId,request.EventId)??throw new KeyNotFoundException("Attendance was not found.");e.Status=request.Status;e.JoinedAt=request.JoinedAt;await repository.UpdateAsync(e);return new(e.UserId,e.EventId,e.Status,e.JoinedAt);}}

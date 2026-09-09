@@ -1,0 +1,4 @@
+using MediatR; using PartyNL.Application.Abstractions.Repositories; using PartyNL.Domain.Entities;
+namespace PartyNL.Application.Features.Categories.Commands.CreateCategory;
+public sealed record CreateCategoryCommand(string Name,string? Icon):IRequest<CreateCategoryResponse>;public sealed record CreateCategoryResponse(Guid Id,string Name,string? Icon);
+public sealed class CreateCategoryHandler(ICategoryRepository repository):IRequestHandler<CreateCategoryCommand,CreateCategoryResponse>{public async Task<CreateCategoryResponse> Handle(CreateCategoryCommand request,CancellationToken cancellationToken){var e=new Category{Name=request.Name,Icon=request.Icon};await repository.AddAsync(e);return new(e.Id,e.Name,e.Icon);}}

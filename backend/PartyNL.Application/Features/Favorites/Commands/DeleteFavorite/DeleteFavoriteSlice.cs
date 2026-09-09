@@ -1,0 +1,4 @@
+using MediatR; using PartyNL.Application.Abstractions.Repositories;
+namespace PartyNL.Application.Features.Favorites.Commands.DeleteFavorite;
+public sealed record DeleteFavoriteCommand(Guid UserId,Guid EventId):IRequest<DeleteFavoriteResponse>;public sealed record DeleteFavoriteResponse(Guid UserId,Guid EventId);
+public sealed class DeleteFavoriteHandler(IFavoriteRepository repository):IRequestHandler<DeleteFavoriteCommand,DeleteFavoriteResponse>{public async Task<DeleteFavoriteResponse> Handle(DeleteFavoriteCommand request,CancellationToken cancellationToken){var e=await repository.GetByIdAsync(request.UserId,request.EventId)??throw new KeyNotFoundException("Favorite was not found.");await repository.DeleteAsync(e);return new(e.UserId,e.EventId);}}

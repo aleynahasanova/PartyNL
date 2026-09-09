@@ -1,0 +1,4 @@
+using MediatR; using PartyNL.Application.Abstractions.Repositories;
+namespace PartyNL.Application.Features.Categories.Commands.UpdateCategory;
+public sealed record UpdateCategoryCommand(Guid Id,string Name,string? Icon):IRequest<UpdateCategoryResponse>;public sealed record UpdateCategoryResponse(Guid Id,string Name,string? Icon);
+public sealed class UpdateCategoryHandler(ICategoryRepository repository):IRequestHandler<UpdateCategoryCommand,UpdateCategoryResponse>{public async Task<UpdateCategoryResponse> Handle(UpdateCategoryCommand request,CancellationToken cancellationToken){var e=await repository.GetByIdAsync(request.Id)??throw new KeyNotFoundException($"Category with ID '{request.Id}' was not found.");e.Name=request.Name;e.Icon=request.Icon;await repository.UpdateAsync(e);return new(e.Id,e.Name,e.Icon);}}

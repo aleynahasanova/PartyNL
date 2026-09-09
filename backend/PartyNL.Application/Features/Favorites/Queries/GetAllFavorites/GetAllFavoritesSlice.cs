@@ -1,0 +1,4 @@
+using MediatR; using PartyNL.Application.Abstractions.Repositories;
+namespace PartyNL.Application.Features.Favorites.Queries.GetAllFavorites;
+public sealed record GetAllFavoritesQuery:IRequest<GetAllFavoritesResponse>;public sealed record FavoriteResponse(Guid UserId,Guid EventId,DateTime CreatedAt);public sealed record GetAllFavoritesResponse(IEnumerable<FavoriteResponse> Favorites);
+public sealed class GetAllFavoritesHandler(IFavoriteRepository repository):IRequestHandler<GetAllFavoritesQuery,GetAllFavoritesResponse>{public async Task<GetAllFavoritesResponse> Handle(GetAllFavoritesQuery request,CancellationToken cancellationToken){var items=await repository.GetAllAsync();return new(items.Select(e=>new FavoriteResponse(e.UserId,e.EventId,e.CreatedAt)));}}

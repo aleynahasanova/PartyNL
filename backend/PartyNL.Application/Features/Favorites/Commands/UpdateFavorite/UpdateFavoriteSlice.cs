@@ -1,0 +1,4 @@
+using MediatR; using PartyNL.Application.Abstractions.Repositories;
+namespace PartyNL.Application.Features.Favorites.Commands.UpdateFavorite;
+public sealed record UpdateFavoriteCommand(Guid UserId,Guid EventId,DateTime CreatedAt):IRequest<UpdateFavoriteResponse>;public sealed record UpdateFavoriteResponse(Guid UserId,Guid EventId,DateTime CreatedAt);
+public sealed class UpdateFavoriteHandler(IFavoriteRepository repository):IRequestHandler<UpdateFavoriteCommand,UpdateFavoriteResponse>{public async Task<UpdateFavoriteResponse> Handle(UpdateFavoriteCommand request,CancellationToken cancellationToken){var e=await repository.GetByIdAsync(request.UserId,request.EventId)??throw new KeyNotFoundException("Favorite was not found.");e.CreatedAt=request.CreatedAt;await repository.UpdateAsync(e);return new(e.UserId,e.EventId,e.CreatedAt);}}

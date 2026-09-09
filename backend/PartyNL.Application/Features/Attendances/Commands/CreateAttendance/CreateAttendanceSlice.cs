@@ -1,0 +1,4 @@
+using MediatR; using PartyNL.Application.Abstractions.Repositories; using PartyNL.Domain.Entities; using PartyNL.Domain.Enums;
+namespace PartyNL.Application.Features.Attendances.Commands.CreateAttendance;
+public sealed record CreateAttendanceCommand(Guid UserId,Guid EventId,AttendanceStatus Status,DateTime JoinedAt):IRequest<CreateAttendanceResponse>;public sealed record CreateAttendanceResponse(Guid UserId,Guid EventId,AttendanceStatus Status,DateTime JoinedAt);
+public sealed class CreateAttendanceHandler(IAttendanceRepository repository):IRequestHandler<CreateAttendanceCommand,CreateAttendanceResponse>{public async Task<CreateAttendanceResponse> Handle(CreateAttendanceCommand request,CancellationToken cancellationToken){var e=new Attendance{UserId=request.UserId,EventId=request.EventId,Status=request.Status,JoinedAt=request.JoinedAt};await repository.AddAsync(e);return new(e.UserId,e.EventId,e.Status,e.JoinedAt);}}
